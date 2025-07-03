@@ -1,6 +1,620 @@
-body
-{
-background-color: blueviolet;
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap'); /* Fonte mais moderna */
+
+/* Variáveis CSS - Adaptadas à paleta da imagem */
+:root {
+    --primary-color: #6C5CE7; /* Roxo vibrante */
+    --secondary-color: #2ED0C4; /* Azul água/Teal */
+    --accent-color: #00FFC0; /* Verde neon */
+    --dark-bg: #1A0D2B; /* Fundo roxo escuro, quase preto */
+    --darker-bg: #0D061A; /* Fundo ainda mais escuro */
+    --light-text: #E0E0E0; /* Texto claro */
+    --glow-effect: 0 0 15px rgba(108, 92, 231, 0.7), 0 0 30px rgba(46, 208, 196, 0.5); /* Efeito de brilho neon */
+    --border-radius: 10px; /* Bordas mais arredondadas */
+    --box-shadow-dark: 0 5px 20px rgba(0, 0, 0, 0.5);
+    --input-bg: rgba(255, 255, 255, 0.08); /* Fundo sutil para inputs */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Aplica a nova fonte */
+    line-height: 1.7; /* Espaçamento de linha melhor */
+    color: var(--light-text); /* Cor do texto padrão */
+    background-color: var(--dark-bg); /* Fundo escuro */
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color); /* Links com cor neon */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-color); /* Efeito de brilho no hover */
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Cabeçalho e Navegação --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--darker-bg); /* Fundo mais escuro para o navbar */
+    padding: 1.2rem 3rem; /* Mais padding */
+    box-shadow: var(--box-shadow-dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(108, 92, 231, 0.3); /* Linha sutil na parte inferior */
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color); /* Brilho no logo */
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 2.5rem; /* Aumenta o espaçamento entre os links */
+}
+
+.navbar .nav-links a {
+    color: var(--light-text);
+    font-weight: 600; /* Mais negrito */
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.navbar .nav-links a::after { /* Efeito de sublinhado neon */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-links a:hover::after {
+    width: 100%;
+}
 
 
+/* Menu Hambúrguer para Mobile */
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001; /* Garante que o hambúrguer esteja sobre o nav-links mobile */
+}
+
+.burger div {
+    width: 30px; /* Um pouco maior */
+    height: 3px;
+    background-color: var(--light-text);
+    margin: 6px; /* Mais espaço entre as linhas */
+    transition: all 0.3s ease;
+}
+
+/* Navegação Ativa (para mobile) */
+.nav-active {
+    transform: translateX(0%) !important;
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-7px, 7px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
+/* Animação para os links no menu mobile */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+/* --- Seções Principais --- */
+main {
+    padding: 3rem 2rem; /* Mais padding */
+    max-width: 1400px; /* Maior largura para o conteúdo */
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 5rem; /* Mais espaço entre as seções */
+    padding: 3rem; /* Mais padding interno */
+    background-color: var(--darker-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+    scroll-margin-top: 100px; /* Ajuste para o menu fixo */
+    position: relative;
+    overflow: hidden; /* Garante que sombras e brilhos não vazem */
+    border: 1px solid rgba(108, 92, 231, 0.2); /* Borda sutil */
+}
+
+section h1, section h2 {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Mais espaço abaixo do título */
+    color: var(--primary-color);
+    font-size: 2.8rem; /* Títulos maiores */
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(108, 92, 231, 0.5); /* Brilho no título */
+}
+
+/* --- Hero Section (Index) --- */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 5rem;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px; /* Altura mínima para o banner */
+    background-color: var(--darker-bg); /* Fundo padrão caso a imagem não carregue ou para transição */
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) saturate(1.2); /* Escurece e satura para um visual mais dramático */
+    border-radius: var(--border-radius);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative; /* Para ficar acima da imagem */
+    z-index: 1;
+    max-width: 900px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente para o texto */
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(5px); /* Efeito de desfoque */
+    border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Título maior no banner */
+    margin-bottom: 1.5rem;
+    color: var(--accent-color); /* Título neon */
+    text-shadow: var(--glow-effect);
+}
+
+.hero-content p {
+    font-size: 1.4rem; /* Parágrafo maior */
+    margin-bottom: 3rem;
+    color: var(--light-text);
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.4); /* Sombra inicial */
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--secondary-color); /* Sombra no hover */
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Produtos mais lado a lado, ajuste de tamanho mínimo */
+    gap: 2.5rem; /* Espaçamento maior entre os produtos */
+    justify-content: center;
+    align-items: stretch;
+}
+
+.product-item {
+    background-color: var(--darker-bg);
+    border: 1px solid rgba(46, 208, 196, 0.2); /* Borda sutil de teal */
+    border-radius: var(--border-radius);
+    padding: 2rem; /* Mais padding */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item::before { /* Efeito de borda neon no hover */
+    content: '';
+    position: absolute;
+    inset: -1px; /* Cobre a borda */
+    border-radius: var(--border-radius);
+    padding: 2px; /* Largura do brilho */
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: rotateGlow 3s linear infinite; /* Animação de rotação */
+    background-size: 200% 200%;
+}
+
+.product-item:hover::before {
+    opacity: 1;
+}
+
+@keyframes rotateGlow {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+
+.product-item:hover {
+    transform: translateY(-10px) scale(1.02); /* Mais destaque no hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 220px; /* Um pouco mais alto */
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3)); /* Sombra para as imagens */
+}
+
+.product-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+}
+
+.product-item p {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.product-item .price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    display: block;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.add-to-cart-btn {
+    background-color: var(--secondary-color);
+    color: var(--darker-bg); /* Texto escuro no botão neon */
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(46, 208, 196, 0.5);
+    width: 100%;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+/* --- About Us Section --- */
+.about-us p {
+    margin-bottom: 1.2rem;
+    line-height: 2; /* Mais espaçamento para leitura */
+    text-align: justify;
+    font-size: 1.05rem;
+    color: var(--light-text);
+}
+
+.about-us strong {
+    color: var(--secondary-color);
+    font-weight: 700;
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+/* --- Contact Form Section --- */
+.contact-form-section {
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 700px; /* Formulário um pouco maior */
+    margin: 3rem auto; /* Mais espaço */
+    padding: 2.5rem;
+    background-color: var(--darker-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+    text-align: left;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.8rem; /* Mais espaço */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem; /* Mais padding */
+    border: 1px solid rgba(46, 208, 196, 0.3); /* Borda sutil */
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--input-bg); /* Fundo semi-transparente */
+    color: var(--light-text);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 255, 192, 0.25), 0 0 10px rgba(0, 255, 192, 0.4);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.error-message {
+    color: #FF6B6B; /* Vermelho mais vibrante para erros */
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+    display: none;
+    text-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+}
+
+.btn-submit {
+    background-color: var(--accent-color);
+    color: var(--darker-bg);
+    border: none;
+    padding: 1.2rem 2.5rem; /* Botão maior */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 192, 0.6);
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px var(--secondary-color);
+}
+
+.success-message {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    display: none;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.contact-info {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.contact-info h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    color: var(--light-text);
+}
+
+.contact-info a {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: var(--darker-bg);
+    color: var(--light-text);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 5rem;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+/* --- Responsividade (Media Queries) --- */
+
+/* Telas menores que 1024px (laptops e tablets grandes) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 1rem 2rem;
+    }
+
+    .navbar .nav-links {
+        gap: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Telas menores que 768px (tablets e mobiles) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--darker-bg);
+        position: absolute;
+        top: 70px; /* Altura do header ajustada */
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in;
+        padding: 1.5rem 0;
+        z-index: 999; /* Abaixo do hambúrguer */
+        border-top: 1px solid rgba(108, 92, 231, 0.3);
+    }
+
+    .navbar .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    section {
+        padding: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    section h1, section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+}
+
+/* Telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.6rem;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .btn, .btn-submit {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.05rem;
+    }
+
+    .product-item img {
+        height: 180px;
+    }
+
+    .product-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .product-item .price {
+        font-size: 1.3rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+    }
 }

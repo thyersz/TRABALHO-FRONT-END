@@ -1,6 +1,161 @@
-body
-{
-background-color: blueviolet;
+/* Custom CSS for Yoru Blog */
 
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light grey background */
+    color: #343a40; /* Dark grey text */
+}
 
+/* Navbar Styling */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Jumbotron/Hero Section */
+.jumbotron {
+    background-color: #212529 !important; /* Darker background for contrast */
+    color: #ffffff !important;
+    padding: 3rem !important;
+    border-radius: .5rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow for readability */
+}
+
+.jumbotron img {
+    max-height: 400px;
+    object-fit: cover;
+    border: 2px solid #007bff; /* Primary color border */
+}
+
+/* Custom Card Styling */
+.custom-card {
+    border: none; /* Remove default border */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #ffffff; /* White background for cards */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.custom-card .card-img-top {
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+.custom-card .card-title {
+    color: #007bff; /* Primary color for titles */
+    font-weight: bold;
+}
+
+/* News Carousel Styling */
+#news-carousel .news-item {
+    min-height: 120px; /* Ensure consistent height for news items */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9ecef !important; /* Lighter background for news items */
+    border-left: 5px solid #007bff; /* Accent border */
+}
+
+/* Form Styling */
+#contactForm .form-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+#contactForm .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#contactForm .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #212529 !important; /* Dark background */
+    color: #ffffff !important;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments (Bootstrap handles most, but custom tweaks can go here) */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 2rem !important;
+    }
+    .jumbotron h1 {
+        font-size: 2.5rem;
+    }
+    .jumbotron p {
+        font-size: 1rem;
+    }
+}
+
+/* Specific image styling for overview and tips pages */
+.card-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+/* Style for lists in tips and strategies */
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0;
+}
+
+ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #ced4da; /* Dashed line separator */
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li::before {
+    content: "⚡ "; /* Custom bullet point */
+    color: #ffc107; /* Yellowish color for the bolt */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Highlight for headings in content */
+h2.text-primary, h3.text-info {
+    border-bottom: 2px solid;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2.text-primary {
+    border-color: #007bff;
+}
+
+h3.text-info {
+    border-color: #17a2b8;
 }

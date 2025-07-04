@@ -1,15 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <title>Yoru Desvendado - Seu Guia Completo</title>
+    <meta name="description" content="Descubra tudo sobre Yoru, o duelista japonês de Valorant, suas habilidades, dicas e estratégias para dominar o campo de batalha.">
+    <meta name="keywords" content="Yoru, Valorant, Agente, Duelista, Habilidades Yoru, Dicas Valorant, Jogo, FPS">
+    <meta name="author" content="Seu Nome">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/yoru-icon.png" type="image/png">
 </head>
 <body>
-    <h1>testegithub</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Yoru Desvendado</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="yoru-overview.html">Visão Geral</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tips-strategies.html">Dicas e Estratégias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <section class="jumbotron text-center bg-dark text-white p-5 rounded shadow">
+            <img src="img/yoru-banner.jpg" class="img-fluid rounded mb-4" alt="Banner Yoru - Valorant">
+            <h1 class="display-4">Yoru: O Duelista das Dimensões</h1>
+            <p class="lead">Prepare-se para dominar o campo de batalha com o agente mais enigmático de Valorant. Yoru é um mestre da decepção e da movimentação, capaz de enganar seus inimigos e surpreender com ataques imprevisíveis.</p>
+            <hr class="my-4">
+            <p>Neste blog, você encontrará um guia completo sobre Yoru, desde suas habilidades até as melhores estratégias para utilizá-lo no competitivo.</p>
+            <a class="btn btn-primary btn-lg" href="yoru-overview.html" role="button">Conheça o Yoru</a>
+        </section>
+
+        <section class="row my-5">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm custom-card">
+                    <img src="img/yoru-portrait.jpg" class="card-img-top" alt="Retrato Yoru">
+                    <div class="card-body">
+                        <h5 class="card-title">Quem é Yoru?</h5>
+                        <p class="card-text">Yoru é um duelista japonês capaz de romper a realidade para infiltrar as linhas inimigas sem ser detectado. Com suas habilidades de teletransporte e cegamento, ele cria oportunidades para sua equipe e desorganiza a defesa adversária.</p>
+                        <a href="yoru-overview.html" class="btn btn-outline-primary">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm custom-card">
+                    <img src="img/yoruabilitis.jpg" class="card-img-top" alt="Habilidades Yoru">
+                    <div class="card-body">
+                        <h5 class="card-title">Domine suas Habilidades</h5>
+                        <p class="card-text">Desde o Gatecrash até o Dimensional Drift, cada habilidade de Yoru oferece uma camada de complexidade tática. Aprenda a usá-las em conjunto para maximizar seu potencial e enganar seus oponentes.</p>
+                        <a href="tips-strategies.html" class="btn btn-outline-primary">Ver Dicas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-5">
+            <h2 class="text-center mb-4">Últimas Notícias e Atualizações</h2>
+            <div id="news-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-block w-100 text-center bg-light p-4 rounded shadow-sm news-item">
+                            <h5>Atualização de Balanceamento: Yoru em destaque!</h5>
+                            <p>Confira as últimas mudanças que afetam o agente Yoru na mais recente atualização do Valorant.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100 text-center bg-light p-4 rounded shadow-sm news-item">
+                            <h5>Novo Guia de Flashes para Yoru</h5>
+                            <p>Aprenda os melhores ângulos e momentos para usar o Blindside de Yoru e garantir abates.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100 text-center bg-light p-4 rounded shadow-sm news-item">
+                            <h5>Top 5 Jogadas de Yoru no VCT!</h5>
+                            <p>Inspire-se com os melhores profissionais usando Yoru em campeonatos de alto nível.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#news-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#news-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Felipe Augusto. Todos os direitos reservados - UNICESUMAR. | Desenvolvido para a disciplina de Programação Front End.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
